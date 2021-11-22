@@ -13,7 +13,7 @@ router.get('/rooms/add', (req, res) => {
 	res.render('rooms/new-room');
 });
 
-router.post('/rooms/add', multerUploader, (req, res) => {
+router.post('/rooms/add', multerUploader.single("imgUrl"), (req, res) => {
 	//Get the user id from the session
 	const userId = req.session.currentUser._id;
 
